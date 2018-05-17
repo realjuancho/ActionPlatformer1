@@ -4,13 +4,34 @@ using UnityEngine;
 
 public class DisappearingPlatform : MovingPlatform {
 
-	// Use this for initialization
+    LineRenderer lineRenderer;
+
 	void Start () {
-		
+
+        lineRenderer = GetComponent<LineRenderer>();
+
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
+
+
+	private void Update()
+	{
+        
+
+        lineRenderer.positionCount = base.movingPositions.Length;
+
+        int i = 0;
+        foreach(MovingPosition movingPosition in base.movingPositions)
+        {
+
+            lineRenderer.SetPosition(i, new Vector3(movingPosition.movePosition.position.x,
+                                                    movingPosition.movePosition.position.y,
+                                                    movingPosition.movePosition.position.z
+                                                   ));
+
+            i++;
+        }
+
+
+
 	}
 }

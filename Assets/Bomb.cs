@@ -6,9 +6,9 @@ public class Bomb : MonoBehaviour {
 
 
 	
-	public bool StartMoving;
+	public bool debugBomb;
 	public float bombSpeed = 10.0f;
-
+    public float minDistanceToObjective = 10.0f;
 	public float minGroundDistance = 0.3f;
 	public int LineResolution = 10;
 
@@ -47,37 +47,44 @@ public class Bomb : MonoBehaviour {
 
 	void UpdateLineRenderer()
 	{
+        origen = transform.position;
 
 		objetivo = p.floorBelowPosition;
 
-		lineRenderer.positionCount = LineResolution +1;
-		
-		Vector3[] linePositions = new Vector3[lineRenderer.positionCount];
+        float distanciaObjetivo = (transform.position - p.floorBelowPosition).magnitude;
+
+        if (distanciaObjetivo <= minDistanceToObjective)
+        {
+            if (debugBomb) Debug.Log("Distancia Objetivo:" + distanciaObjetivo);
+
+            lineRenderer.positionCount = LineResolution + 1;
+
+            Vector3[] linePositions = new Vector3[lineRenderer.positionCount];
 
 
-		for(int i = 0; i < lineRenderer.positionCount; i++)
-		{
-			
-			float percent = (1.0f / lineRenderer.positionCount) *i;
+            for (int i = 0; i < lineRenderer.positionCount; i++)
+            {
+
+                float percent = (1.0f / lineRenderer.positionCount) * i;
 
 
-			Vector3 newPosition = Vector3.Lerp(origen, objetivo, percent);
-				
-//					newPosition.y = Cuadratica(
-//						AFrom(objetivo.x, objetivo.y, origen.x, origen.y)
-//						,1
-//						,1
-//						, percent);
-		
-			linePositions[i] = newPosition; 
-		}
+                Vector3 newPosition = Vector3.Lerp(origen, objetivo, percent);
 
-		Vector3 lastPosition = new Vector3(objetivo.x, objetivo.y, objetivo.z);
+                //					newPosition.y = Cuadratica(
+                //						AFrom(objetivo.x, objetivo.y, origen.x, origen.y)
+                //						,1
+                //						,1
+                //						, percent);
 
-		linePositions[linePositions.Length-1] = lastPosition;
+                linePositions[i] = newPosition;
+            }
 
-		lineRenderer.SetPositions(linePositions);
+            Vector3 lastPosition = new Vector3(objetivo.x, objetivo.y, objetivo.z);
 
+            linePositions[linePositions.Length - 1] = lastPosition;
+
+            lineRenderer.SetPositions(linePositions);
+        }
 
 
 

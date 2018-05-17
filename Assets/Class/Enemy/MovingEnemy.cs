@@ -10,7 +10,7 @@ public class MovingEnemy : Destroyable {
 	public float bobHeight = 0.2f;
  	public float bobSpeed = 10.0f;
 	public float detectionDistance = 10;
-	public float bottomDistance = 10;
+	public float bottomDistance = 2;
 
 	// Update is called once per frame
 	Vector3 meshExtents;
@@ -34,7 +34,7 @@ public class MovingEnemy : Destroyable {
 		}
 
 		Vector3 checkBottomOrigin = transform.position;
-		bottomOffset = meshExtents.y;
+        bottomOffset = meshExtents.y;
 		checkBottomOrigin += (Vector3.down * bottomOffset);
 		bottomDistance += Senoidal(bobHeight,bobSpeed,0,0,time);
 		Vector3 checkBottomDirection = Vector3.down * bottomDistance;
@@ -52,7 +52,7 @@ public class MovingEnemy : Destroyable {
 				if(DebugEnemy) Debug.DrawRay(checkBottomOrigin, Vector3.down * checkBottomHit.distance, Color.red);
 
 				Vector3 pos = transform.position;
-				float height = bottomDistance + bottomOffset;
+                float height = checkBottomHit.point.y + bottomDistance + bottomOffset;
 
 				transform.position = new Vector3(pos.x, height, pos.z);
 			}
