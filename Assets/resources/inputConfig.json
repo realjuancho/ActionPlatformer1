@@ -1,0 +1,9 @@
+[
+{
+	jumpButton : ["space"]
+	xAxis : "Horizontal"
+	yAxis : "Vertical"
+	attackButton : {"left ctrl","mouse 0"}
+	deflectButton : ["right ctrl", "mouse 1"]
+}
+]
