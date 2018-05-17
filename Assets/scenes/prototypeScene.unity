@@ -342,7 +342,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 726b8298042134c42abf212618b32263, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  DebugCamera: 1
+  DebugCamera: 0
   CameraFollows: 1
   RequestUpdatePlayers: 0
   smoothRate: 0.5
