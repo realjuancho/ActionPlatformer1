@@ -6,9 +6,7 @@ public class PlayerInputManager : MonoBehaviour {
 
 
 		public GameManager gameManager;
-
 		public int AvailableInputs;
-
 		public float aimSensitivity = 0.3f;
 
 		void Awake()
@@ -70,7 +68,7 @@ public class PlayerInputManager : MonoBehaviour {
 		 		 	objective.y = 0;
 		 		 	objective.z = Input.GetAxis(p.playerInput.yAxis_RightJoystick);
 					objective = -objective.x * camRelativeForward 
-		 		  				- objective.z * camTransform.right;
+		 		  				-objective.z * camTransform.right;
 		 		  		
 					pointerTransform.localPosition = objective;
 

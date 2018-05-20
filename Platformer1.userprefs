@@ -1,12 +1,11 @@
-﻿<Properties StartupConfiguration="{9B84E437-685C-5351-5426-92274238854A}|Pruebas unitarias">
-  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="MonoDevelop.Default" />
+﻿<Properties>
   <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Bomb.cs">
     <Files>
       <File FileName="Assets/Class/Platforms/MovingPlatform.cs" Line="27" Column="2" />
       <File FileName="Assets/Class/Platforms/Platform.cs" Line="14" Column="1" />
-      <File FileName="Assets/Bomb.cs" Line="53" Column="46" />
+      <File FileName="Assets/Bomb.cs" Line="1" Column="1" />
       <File FileName="Assets/Class/Player/Player.cs" Line="108" Column="8" />
-      <File FileName="Assets/Class/PlayerInputManager.cs" Line="160" Column="8" />
+      <File FileName="Assets/Class/PlayerInputManager.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />

@@ -12,6 +12,7 @@ public class Bomb : MonoBehaviour {
 	public float minGroundDistance = 0.3f;
 	public int LineResolution = 10;
 
+    public float Velocidad = 15.0f;
 
 	LineRenderer lineRenderer;
 	Vector3 origen;
@@ -48,50 +49,39 @@ public class Bomb : MonoBehaviour {
 	void UpdateLineRenderer()
 	{
         origen = transform.position;
-
 		objetivo = p.floorBelowPosition;
 
-        float distanciaObjetivo = (transform.position - p.floorBelowPosition).magnitude;
+        float distanciaObjetivo = (origen - p.floorBelowPosition).magnitude;
 
         if (distanciaObjetivo <= minDistanceToObjective)
         {
             if (debugBomb) Debug.Log("Distancia Objetivo:" + distanciaObjetivo);
 
-            lineRenderer.positionCount = LineResolution + 1;
+            lineRenderer.positionCount = LineResolution +1;
 
-            Vector3[] linePositions = new Vector3[lineRenderer.positionCount];
+            Vector3[] linePositions = new Vector3[lineRenderer.positionCount +1];
 
 
-            for (int i = 0; i < lineRenderer.positionCount; i++)
+            for (int i = 0; i < lineRenderer.positionCount +1; i++)
             {
-
-                float percent = (1.0f / lineRenderer.positionCount) * i;
-
-
+                float percent = (1.0f / lineRenderer.positionCount +1) * i;
                 Vector3 newPosition = Vector3.Lerp(origen, objetivo, percent);
 
-                //					newPosition.y = Cuadratica(
-                //						AFrom(objetivo.x, objetivo.y, origen.x, origen.y)
-                //						,1
-                //						,1
-                //						, percent);
 
                 linePositions[i] = newPosition;
             }
 
-            Vector3 lastPosition = new Vector3(objetivo.x, objetivo.y, objetivo.z);
 
-            linePositions[linePositions.Length - 1] = lastPosition;
 
             lineRenderer.SetPositions(linePositions);
         }
-
-
-
-
+        else
+        {
+            lineRenderer.positionCount = 0;
+        }
 	}
 
-
+  
 
 	void CheckGround()
 	{
@@ -116,23 +106,6 @@ public class Bomb : MonoBehaviour {
 
 	}
 
-	public float a;
-	float AFrom(float x, float y, float h, float k)
-	{
-		a = (y-k)/Mathf.Pow(x-h,2);
-		return a;
-	}
 
-	public float b;
-	float BFrom(float x, float y, float a, float k)
-	{
-		return 1.0f;
-	}
-
-	float Cuadratica(float a, float b, float c, float x)
-	{
-		x = (a * Mathf.Pow(x,2)) + (b * x) + c;
-		return x;
-	}
 
 }

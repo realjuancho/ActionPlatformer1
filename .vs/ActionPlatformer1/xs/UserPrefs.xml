@@ -1,11 +1,15 @@
 ﻿<Properties StartupConfiguration="{9B84E437-685C-5351-5426-92274238854A}|">
   <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Bomb.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Class/Attack/RayBullet.cs">
     <Files>
       <File FileName="Assets/Class/Platforms/DisappearingPlatform.cs" Line="9" Column="12" />
       <File FileName="Assets/Class/Enemy/MovingEnemy.cs" Line="55" Column="54" />
       <File FileName="Assets/Class/Platforms/MovingPlatform.cs" Line="5" Column="14" />
-      <File FileName="Assets/Bomb.cs" Line="1" Column="1" />
+      <File FileName="Assets/Bomb.cs" Line="84" Column="3" />
+      <File FileName="Assets/Class/Player/Player.cs" Line="1" Column="1" />
+      <File FileName="Assets/Class/PlayerInputManager.cs" Line="88" Column="6" />
+      <File FileName="Assets/Class/Attack/Weapon.cs" Line="1" Column="1" />
+      <File FileName="Assets/Class/Attack/RayBullet.cs" Line="1" Column="1" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
